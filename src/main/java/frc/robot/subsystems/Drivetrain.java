@@ -137,13 +137,17 @@ public class Drivetrain extends Swerve {
    * @param pathFile a String representing the name of the path. Add these to
    *     src/main/deploy/pathplanner.
    * @param isFirstPath whether this path is the first one the robot follows. Set this to true for
-   *     the very * first path you follow in Autonomous.
+   *     the very first path you follow in Autonomous.
    * @return a Command that follows the path.
    */
-  private Command followTrajectoryCommand(String pathFile, boolean isFirstPath) {
+  public Command followTrajectoryCommand(String pathFile, boolean isFirstPath) {
     PathPlannerPath path = fromPathFile(pathFile);
-    return new FollowPathWithEvents(
+    if(path != null) System.out.println("test");
+    try {return new FollowPathWithEvents(
         followTrajectoryCommand(() -> path, isFirstPath), path, this::getPose);
+    }
+    catch(Exception e) {e.printStackTrace(); return null;}
+
   }
 
   /**

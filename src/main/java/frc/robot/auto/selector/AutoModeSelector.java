@@ -2,6 +2,7 @@ package frc.robot.auto.selector;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.auto.modes.TestPath;
 
 public class AutoModeSelector {
   private static AutoModeSelector instance;
@@ -13,7 +14,7 @@ public class AutoModeSelector {
     return instance;
   }
 
-  // private final DoNothing doNothing = new DoNothing();
+  private final TestPath testPath = new TestPath();
 
   private final SendableChooser<Command> modeChooserRed;
   private final SendableChooser<Command> modeChooserBlue;
@@ -24,7 +25,10 @@ public class AutoModeSelector {
     updateAutoModeSelector();
   }
 
-  public void updateAutoModeSelector() {}
+  public void updateAutoModeSelector() {
+    modeChooserRed.setDefaultOption("TEST_PATH", testPath);
+    modeChooserBlue.setDefaultOption("DO_NOTHING", AutoModeList.DO_NOTHING.getAuto());
+  }
 
   public SendableChooser<Command> getRedChooser() {
     return modeChooserRed;
