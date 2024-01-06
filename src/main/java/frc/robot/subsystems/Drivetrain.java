@@ -1,7 +1,7 @@
 package frc.robot.subsystems;
 
 import static com.pathplanner.lib.path.PathPlannerPath.fromPathFile;
-import static frc.robot.core.swerve.SwerveConstants.*;
+import static frc.robot.core.swerve.TalonSwerve.SwerveConstants.*;
 
 import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.commands.FollowPathWithEvents;
@@ -15,8 +15,9 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj2.command.*;
 import frc.robot.RobotMap.DriveMap;
-import frc.robot.core.swerve.Swerve;
-import frc.robot.core.swerve.SwerveConstants;
+import frc.robot.core.swerve.TalonSwerve.Swerve;
+import frc.robot.core.swerve.TalonSwerve.SwerveConstants;
+
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
