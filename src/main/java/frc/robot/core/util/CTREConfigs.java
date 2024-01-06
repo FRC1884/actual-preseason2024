@@ -6,7 +6,6 @@ import com.ctre.phoenix.sensors.AbsoluteSensorRange;
 import com.ctre.phoenix.sensors.CANCoderConfiguration;
 import com.ctre.phoenix.sensors.SensorInitializationStrategy;
 import com.ctre.phoenix.sensors.SensorTimeBase;
-
 import frc.robot.core.swerve.TalonSwerve.SwerveConstants;
 
 public final class CTREConfigs {
