@@ -20,8 +20,7 @@ public abstract class MAXSwerve extends SubsystemBase {
   private double currentTranslationMag = 0.0;
 
   private SlewRateLimiter magLimiter = new SlewRateLimiter(MaxSwerveConstants.kMagnitudeSlewRate);
-  private SlewRateLimiter rotLimiter =
-      new SlewRateLimiter(MaxSwerveConstants.kRotationalSlewRate);
+  private SlewRateLimiter rotLimiter = new SlewRateLimiter(MaxSwerveConstants.kRotationalSlewRate);
   private double m_prevTime = WPIUtilJNI.now() * 1e-6;
 
   private MAXSwerveModule fl, fr, bl, br;
@@ -94,8 +93,7 @@ public abstract class MAXSwerve extends SubsystemBase {
       // Calculate the direction slew rate based on an estimate of the lateral acceleration
       double directionSlewRate;
       if (currentTranslationMag != 0.0) {
-        directionSlewRate =
-            Math.abs(MaxSwerveConstants.kDirectionSlewRate / currentTranslationMag);
+        directionSlewRate = Math.abs(MaxSwerveConstants.kDirectionSlewRate / currentTranslationMag);
       } else {
         directionSlewRate =
             500.0; // some high number that means the slew rate is effectively instantaneous
@@ -103,8 +101,7 @@ public abstract class MAXSwerve extends SubsystemBase {
 
       double currentTime = WPIUtilJNI.now() * 1e-6;
       double elapsedTime = currentTime - m_prevTime;
-      double angleDif =
-          MAXSwerveUtils.AngleDifference(inputTranslationDir, currentTranslationDir);
+      double angleDif = MAXSwerveUtils.AngleDifference(inputTranslationDir, currentTranslationDir);
       if (angleDif < 0.45 * Math.PI) {
         currentTranslationDir =
             MAXSwerveUtils.StepTowardsCircular(
