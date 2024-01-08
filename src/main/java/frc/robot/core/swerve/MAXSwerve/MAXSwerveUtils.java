@@ -81,7 +81,7 @@ public class MAXSwerveUtils {
 
     if (_angle
         == twoPi) { // Handle this case separately to avoid floating point errors with the floor
-                    // after the division in the case below
+      // after the division in the case below
       return 0.0;
     } else if (_angle > twoPi) {
       return _angle - twoPi * Math.floor(_angle / twoPi);
